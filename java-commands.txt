@@ -1,0 +1,116 @@
+## How to find heap memory:
+- windows: java -XX:+PrintFlagsFinal -version | findstr /i "HeapSize PermSize ThreadStackSize"
+- Linux: java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
+
+## How to increase visualVM memory:
+- C:\Program Files\Java\jdk1.8.0_40\lib\visualvm\etc\cisualvm.conf
+
+-J-Xms24m -J-Xmx2048m
+
+
+### Java Commands
+
+## Basic tools
+These tools are the foundation of the JDK. They are the tools you use to create and build applications.
+
+- appletviewer									-- Runs and debug applications without web browser
+- extcheck											-- Utility to check jar conflicts
+- java													-- Create and manage jar archive
+- Java													-- Launcher for java applications
+- javac													-- compiler for java programming language
+- javadoc												-- API document generator
+- javah													-- C header and stub generator
+- javap													-- Class file disassembler
+- jdb														-- java debugger
+
+
+## Java troubleshooting, profiling, monitoring and management tools
+
+- jcmd													-- JVM diagnostic command tool - send diagnostic command to running JVM
+- jconsole											-- JMX compliant graphical UI for monitoring JVM, It can monitor both local and Remote JVM's
+- jmc 													-- Java Mission Control client include tools to monitor and manage java application without introducing performance overhead
+- jvisualvm											-- shows detailed information, provides memory and cpu profiling, heap dump analysis, memory leak detection, access to MBean and garbage collection
+
+
+
+## Monitoring tools
+Used to monitor JVM performance statistics
+
+- jps														-- JVM process status tool : List instrumented hotspot JVM on target machine
+- jstat													-- JVM statistics monitoring tool : attaches to an instrumented hotspot JVM and collects logs, performance stats specified by command line
+- jstatd												-- JVM jstat deamon : launches RMI server application that monitors for creation and termination of instrumented hotspot
+
+
+## Troubleshooting tools
+tools can be used for specific troubleshooting ThreadStackSize
+
+- jinfo													-- configuration info for java : prints config info for given process or core file or remote debug server
+- jhat													-- heap dump browser : start web server on heap dump file
+- jmap													-- Memory heap for java : print shared object memory map or heap memory details of given process
+- jsadebugd											-- Servicability Agent Debug daemon for java
+- jstack												-- stack trace for java
+
+
+## Security tools
+These security tools helps you to set security polices and create applications that can work within the scope of security polices set at remote sites
+
+- keytool												-- manage keystore and certificate
+- jarsigner											-- Generate and verify jar signatures
+- policytool										-- GUI tool for managing policy files
+
+Following security tools help you to obtain, list and manage Kerberose tickets
+- kinit													-- tool for obtaining kerberose V5 ticket
+- klist													-- list entries in credential cache and key tab
+- ktab													-- It helps the use to manage entries in key table
+
+
+## Internationlization tool
+This tool wil help to localize applications
+
+- native2ascii									-- convert text to unicode latin-1
+
+
+## Remote method invocation tools
+This tools help to create application that interact over the web or other network
+
+- rmic													-- generate stubs and skeletons for remote objects
+- rmiregistry										-- Remote object registry service
+- rmid													-- rmi activate system deamon
+- serialver											-- Return class serialVersionUID
+
+
+## Java IDL and RMI-IIOP tools
+These tools are used when creating applications that use OMG-Standard IDL and COBRA/IIOP
+
+- tnameserv											-- provide access to the naming service
+- idlj													-- Generate .java files that map OMG IDL interface and enable an application written in java language to use COBRA functionality
+- orbd													-- Provides support for clients to transparently locate and invoke persistent objects on servers in the CORBA environment
+- servertool										-- provides ease-of-use interface for application programmers to register, unregister, startup and shutdown the server
+
+
+## Java development tools
+Utilitis for use in conjunction with deployment of java applications and applets on web
+
+- javafxpackager								-- packages javaFX app for deployment
+- pack200												-- transform jar file into complressed pack200, using gzip compressor
+- unpack200											-- Transforms a packed file produced by pack200 into a JAR file
+
+
+## java web start tools
+Utilities for use in conjunction with java web start
+
+- javaws												-- command line tool for launching java web start and setting various options
+
+
+## java web services tools
+
+- schemagen 										-- Schema generator for Java Architecture for XML Binding.
+- wsgen 												-- Tool to generate JAX-WS portable artifacts.
+- wsimport 											-- Tool to generate JAX-WS portable artifacts.
+- xjc 													-- Binding compiler for Java Architecture for XML Binding.
+
+
+## Scripting tools
+following tools used to run scripts that interact with java platform
+
+-- jrunscript										-- script shell for java

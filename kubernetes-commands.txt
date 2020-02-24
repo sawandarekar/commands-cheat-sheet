@@ -1,0 +1,58 @@
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+### AWS Configurations
+aws configure
+$(aws ecr get-login --no-include-email --region eu-west-1) -> ticket.csv   # run command from ticket.csv
+
+### Kubernetes
+
+$ aws configure
+AWS Access Key ID [****************-]: -------------
+AWS Secret Access Key [****************--]:------------------
+Default region name [----]:
+Default output format [json]:
+
+## Get token
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
+kubectl proxy																																		#start kubernetes - login with following URL
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
+
+aws eks update-kubeconfig --name poi-eks																				#connect to cluster
+aws eks --region eu-west-1 update-kubeconfig --name dune-prod-eks								#add eks cluster
+kubectl config current-context																									#current context
+
+## install aws authendicater on linux
+https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
+
+curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.11.5/2018-12-06/bin/linux/amd64/aws-iam-authenticator
+copy to : echo $PATH
+
+# exec to pod
+kubectl exec -it container-id --container open-refine --namespace test -- /bin/sh
+
+
+### create config map
+kubectl create configmap <NAME> --from-file=filename.properties  -namespace <namespace>
+
+kubectl apply -t <.yml> -namespace <namespace>
+
+kubectl get pods -o=custom-columns=NAME:.metadata.name,CONTAINERS:.spec.containers[*].name --namespace dev-sapphire				### List number of containers in pods
+
+kubectl exec -it source-preprocessing-7fdb48846f-8cbqw -c open-refine bash --namespace dev-sapphire												### connect to container in pod
+
+### Horizonatl Pod autoscaler
+kubectl get hpa -n autoscaling-469
+
+### Cluster autoscaler
+kubectl logs deployment.apps/cluster-autoscaler -n kube-system
+
+### HELM Commands ###
+heml list																																				# list helm charts
+helm delete --purge $helm_chart_name																						# delete helm chart, purge delete all history
+
+helm install helm/$environment --name $helm_chart_name --namespace $helm_chart_name --kube-context eks-path
+helm install helm/dune-sapphire --name dune-sapphire-dune-sapphire --namespace dune-sapphire-dune-sapphire --set profile=dev --kube-context eks-path
+
+### Istio Updates ###
+ kubectl -n istio-system edit cm istio
+ kubectl -n istio-system edit deployment istio-ingress

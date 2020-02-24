@@ -1,0 +1,49 @@
+##################################### java #####################################
+---get all java flags---
+java -XX:+PrintFlagsFinal
+
+---get heap detals---
+java -XX:+PrintFlagsFinal -version | findstr /i "HeapSize PermSize ThreadStackSize"
+java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
+
+//save heap dump on OutOfMemory Error
+-Xms50M -Xmx100M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/disk2/dumps
+
+
+
+------------------putty psql command-------------------
+psql -U usersource -c "select * from usersource_v2_5.cfl_sources where status = 0"
+
+--------------------PSQL command-------------
+psql -U usersource -c "select * from cfl_sources"
+
+-------------------- keytool ----------------
+keytool -exportcert -alias YOUR_RELEASE_KEY_ALIAS -keystore YOUR_RELEASE_KEY_PATH | openssl sha1 -binary | openssl base64
+
+
+
+--------------------------- Database ---------------------------
+sudo reboot
+sudo service pgpool restart ///restarting service:
+sudo -u postgres psql
+
+--------------------------- adb ---------------------------------
+
+E:\software\android\adt-bundle-windows-x86-20140702\sdk\platform-tools>adb tcpip 5555
+restarting in TCP mode port: 5555
+
+E:\software\android\adt-bundle-windows-x86-20140702\sdk\platform-tools>adb connect 10.000.00.000
+connected to 10.000.00.000:5555
+
+E:\software\android\adt-bundle-windows-x86-20140702\sdk\platform-tools>adb devices
+List of devices attached
+10.000.00.000:5555      device
+
+
+sudo hostnamectl set-hostname sapphire-couchbase-node-001
+sudo service hostnamectl restart
+
+----------command to find OS detailed information--------------
+
+wmic os get
+

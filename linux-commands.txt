@@ -1,0 +1,42 @@
+### Linux Commands
+rpm -qa | grep component_name
+mv /folder/file1 folder ----delete and move
+cp /folder/file1 folder ----just copy
+
+sudo chmod 777 /usr/share/tomcat8/
+
+ps -ef | tomcat
+history -c --clear linux history
+
+du -csh * 																					----display folder space
+df -h 																							----display complete space
+fdisk -l 																						----display free disk
+
+## Rename Hostname
+vi /etc/rc.local
+sudo hostnamectl set-hostname sapphire-couchbase-node-001.node.eu-west-1-poi.cpp-dev-poi.amiefarm.com
+vi /etc/sysconfig/network
+vi /etc/hosts
+touch /etc/hosts
+getconf HOST_NAME_MAX
+
+sudo netstat -lpn |grep :8080 --find process uses 8080 port
+kill pid --kill process id
+touch /etc/hosts
+
+## Command To List Number Of Open File Descriptors
+https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/
+cat /proc/sys/fs/file-max														--- display maximum number of open file descriptors
+## To see the hard and soft values
+ulimit -Hn
+ulimit -Sn
+## To change the limits
+vi /etc/security/limits.conf
+
+## The Number Of Maximum Files Was Reached, How Do I Fix This Problem?
+sysctl -w fs.file-max=500000												 --- forces the limit to 500000 files.
+##  edit /etc/sysctl.conf file and put following line so that after reboot the setting will remain as it is
+vi /etc/sysctl.conf
+fs.file-max = 3264819
+sysctl -p
+cat /proc/sys/fs/file-max OR sysctl fs.file-max			--- Verify your settings with command

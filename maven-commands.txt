@@ -1,0 +1,19 @@
+##################################### convert mvn project to eclipse #####################################
+mvn eclipse:clean eclipse:eclipse
+
+##################################### download javadoc and sources #####################################
+mvn -DdownloadSources=true -Dclassifier=javadoc
+
+-----------set to new version #####################################
+mvn versions:set -DnewVersion=2.10.0.8-SNAPSHOT
+
+##################################### liquibase #####################################
+mvn liquibase:update -Pliquibase
+mvn -e clean install -Plocal,create -DdefaultSchemaName=iris_db -f pom.xml
+
+----web project---
+mvn archetype:generate -DgroupId=com.tomtom.places.DeltaChecker -DartifactId=DeltaChecker -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+----java project--
+mvn archetype:generate -DgroupId={project-packaging} -DartifactId={project-name} -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+----Maven Sub-Module--
