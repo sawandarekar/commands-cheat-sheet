@@ -31,5 +31,10 @@ git remote show origin //get origin
 git config --global merge.tool
 git config --global mergetool.tortoisemerge.cmd '"C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe" -base:"$BASE" -theirs:"$REMOTE" -mine:"$LOCAL" -merged:"$MERGED"'
 
+git tag -d <tag_name>														----delete local git tag_name
+git push --delete origin <tag_name>							----delete remote git tag_name
+
+
+
 ### Add Existing project to git ###
 https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/

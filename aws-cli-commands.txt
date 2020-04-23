@@ -1,0 +1,3 @@
+
+### copy s3 bucket files to local machine
+	aws s3 cp --recursive s3://bucket/folder c:\DDrive\logs\s3-bucket-logs
