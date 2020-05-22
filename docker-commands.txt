@@ -48,7 +48,7 @@ docker swarm leave --force      												# Take down a single node swarm from
 docker-compose kill
 docker-compose build
 docker-compose build --force-rm --no-cache
-docker-compose up -d                                		# start the container
+docker-compose up -d                                		# start the container in detached mode
 
 docker kill $(docker ps -q)															#stop all containers:
 docker rm $(docker ps -aq)															#remove all containers:
