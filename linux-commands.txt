@@ -40,3 +40,5 @@ vi /etc/sysctl.conf
 fs.file-max = 3264819
 sysctl -p
 cat /proc/sys/fs/file-max OR sysctl fs.file-max			--- Verify your settings with command
+
+scp -i /c/DDrive/key/aws.pem target/archive-checker.jar ec2-user@ip_address:/tmp
