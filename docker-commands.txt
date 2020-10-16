@@ -1,5 +1,9 @@
 https://docs.docker.com/engine/reference/commandline/docker/
 
+##### docker aws ECR login commands
+aws ecr get-login
+docker login -u AWS -p {PASS} https://{ACCOUNT_ID}.dkr.ecr.eu-west-1.amazonaws.com
+
 docker --version
 docker info
 docker ps   #- list all running containers
@@ -49,6 +53,7 @@ docker-compose kill
 docker-compose build
 docker-compose build --force-rm --no-cache
 docker-compose up -d                                		# start the container in detached mode
+docker-compose down
 
 docker kill $(docker ps -q)															#stop all containers:
 docker rm $(docker ps -aq)															#remove all containers:

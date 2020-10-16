@@ -44,6 +44,7 @@ tools can be used for specific troubleshooting ThreadStackSize
 - jinfo													-- configuration info for java : prints config info for given process or core file or remote debug server
 - jhat													-- heap dump browser : start web server on heap dump file
 - jmap													-- Memory heap for java : print shared object memory map or heap memory details of given process
+	jmap -dump:live,format=b,file=heap.bin <pid>
 - jsadebugd											-- Servicability Agent Debug daemon for java
 - jstack												-- stack trace for java
 

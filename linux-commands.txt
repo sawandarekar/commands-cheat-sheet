@@ -42,3 +42,20 @@ sysctl -p
 cat /proc/sys/fs/file-max OR sysctl fs.file-max			--- Verify your settings with command
 
 scp -i /c/DDrive/key/aws.pem target/archive-checker.jar ec2-user@ip_address:/tmp
+
+### less commands
+Forward Search
+    / – search for a pattern which will take you to the next occurrence.
+    n – for next match in forward
+    N – for previous match in backward
+Backward Search
+    ? – search for a pattern which will take you to the previous occurrence.
+    n – for next match in backward direction
+    N – for previous match in forward direction
+
+G – go to the end of file
+g – go to the start of file
+CTRL+G – show the current file name along with line
+v – using the configured editor edit the current file.
+h – summary of less commands
+&pattern – display only the matching lines, not all.

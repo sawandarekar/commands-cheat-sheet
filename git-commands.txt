@@ -33,6 +33,7 @@ git config --global mergetool.tortoisemerge.cmd '"C:/Program Files/TortoiseSVN/b
 
 git tag -d <tag_name>														----delete local git tag_name
 git push --delete origin <tag_name>							----delete remote git tag_name
+git cherry-pick <commit-id>																	----Apply the changes introduced by some existing commits
 
 
 
