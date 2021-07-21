@@ -14,7 +14,7 @@ fdisk -l 																						----display free disk
 
 ## Rename Hostname
 vi /etc/rc.local
-sudo hostnamectl set-hostname sapphire-couchbase-node-001.node.eu-west-1-poi.cpp-dev-poi.amiefarm.com
+sudo hostnamectl set-hostname 
 vi /etc/sysconfig/network
 vi /etc/hosts
 touch /etc/hosts
