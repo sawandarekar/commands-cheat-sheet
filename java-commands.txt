@@ -1,7 +1,6 @@
 ## How to find heap memory:
 - windows: java -XX:+PrintFlagsFinal -version | findstr /i "HeapSize PermSize ThreadStackSize"
 - Linux: java -XX:+PrintFlagsFinal -version | grep -iE 'HeapSize|PermSize|ThreadStackSize'
-
 ## How to increase visualVM memory:
 - C:\Program Files\Java\jdk1.8.0_40\lib\visualvm\etc\cisualvm.conf
 
@@ -104,3 +103,7 @@ Utilities for use in conjunction with java web start
 following tools used to run scripts that interact with java platform
 
 -- jrunscript										-- script shell for java
+
+
+## Certificate installation
+keytool -import -alias example -keystore  C:\Program Files\Java\jdk1.8.0_40\jre\lib\security\cacerts -file example.cer

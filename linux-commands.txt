@@ -8,13 +8,15 @@ sudo chmod 777 /usr/share/tomcat8/
 ps -ef | tomcat
 history -c --clear linux history
 
-du -csh * 																					----display folder space
-df -h 																							----display complete space
-fdisk -l 																						----display free disk
+### Find Disk Space
+
+du -csh *            --- display folder space
+df -h                --- display complete space
+fdisk -l             --- display free disk
 
 ## Rename Hostname
 vi /etc/rc.local
-sudo hostnamectl set-hostname sapphire-couchbase-node-001.node.eu-west-1-poi.cpp-dev-poi.amiefarm.com
+sudo hostnamectl set-hostname 
 vi /etc/sysconfig/network
 vi /etc/hosts
 touch /etc/hosts
@@ -26,7 +28,7 @@ touch /etc/hosts
 
 ## Command To List Number Of Open File Descriptors
 https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/
-cat /proc/sys/fs/file-max														--- display maximum number of open file descriptors
+cat /proc/sys/fs/file-max                                          --- display maximum number of open file descriptors
 ## To see the hard and soft values
 ulimit -Hn
 ulimit -Sn
@@ -34,28 +36,45 @@ ulimit -Sn
 vi /etc/security/limits.conf
 
 ## The Number Of Maximum Files Was Reached, How Do I Fix This Problem?
-sysctl -w fs.file-max=500000												 --- forces the limit to 500000 files.
+sysctl -w fs.file-max=500000                                --- forces the limit to 500000 files.
 ##  edit /etc/sysctl.conf file and put following line so that after reboot the setting will remain as it is
 vi /etc/sysctl.conf
 fs.file-max = 3264819
 sysctl -p
-cat /proc/sys/fs/file-max OR sysctl fs.file-max			--- Verify your settings with command
+cat /proc/sys/fs/file-max OR sysctl fs.file-max           --- Verify your settings with command
 
+### SCP -- remote copy
 scp -i /c/DDrive/key/aws.pem target/archive-checker.jar ec2-user@ip_address:/tmp
 
-### less commands
-Forward Search
-    / – search for a pattern which will take you to the next occurrence.
-    n – for next match in forward
-    N – for previous match in backward
-Backward Search
-    ? – search for a pattern which will take you to the previous occurrence.
-    n – for next match in backward direction
-    N – for previous match in forward direction
+### less commands : 
+go top : g 
+go last : G
+Forward Search : /  n N
+Backward Search : ? n N
 
-G – go to the end of file
-g – go to the start of file
-CTRL+G – show the current file name along with line
-v – using the configured editor edit the current file.
-h – summary of less commands
-&pattern – display only the matching lines, not all.
+### CURL
+curl -u Administrator:password http://112.3.45:8091/pools/default/buckets -o out.txt
+
+### sed command
+sed -i 's|find_text|replace_text|g' file.txt				--- find and replace
+sed -i '1d' file.txt										--- delete first line
+sed -i '$d' file.txt										--- delete last line
+
+sed -i 's|{"id":"||g' nld_ready_for_fusion_1189300.txt
+sed -i 's|","key":"READY_FOR_FUSION","value":1}||g' nld_ready_for_fusion_1189300.txt
+sed -i 's|,||g' nld_ready_for_fusion_1189300.txt
+sed -i '1d' documents_by_locality_remaining.txt
+sed -i '$d' documents_by_locality_remaining.txt
+sed -i '$d' documents_by_locality_remaining.txt
+
+
+### head
+head -n 5 file.txt                                 --- print first 5 lines
+
+### curl
+curl -u username:password http://example.com -o output.txt
+curl -X POST http://ws/ws?id=
+
+
+## Service status check
+systemctl status postgresql-12

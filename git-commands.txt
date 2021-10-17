@@ -23,6 +23,7 @@ git reset --hard HEAD~1   											----Undoing the Last Commit
 git diff master US-2629252-FilterByEmail 				----compare two branches
 git remote -v 																	----display remote URL of git
 
+git config -l
 git config --global user.name "YOUR NAME"
 git config --global user.email "YOUR EMAIL ADDRESS"
 git config --get remote.origin.url //get GIT URL

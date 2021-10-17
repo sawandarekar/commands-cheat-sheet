@@ -16,7 +16,13 @@ mvn archetype:generate -DgroupId=com.tomtom.places.DeltaChecker -DartifactId=Del
 
 ----java project--
 mvn archetype:generate -DgroupId={project-packaging} -DartifactId={project-name} -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
 ----Maven Sub-Module--
 
 
 mvn dependency:tree
+
+### Tests are skipped.
+mvn clean install -Dmaven.test.skip=false
+
+

@@ -6,8 +6,9 @@ conda env list
 conda activate summitsept2019
 conda create --name ai_summit_sept2019
 conda create --name py2 python=2.7              ## conda env with version 2.7
-conda remove --name py2 --all										## remove conda env
-conda install nb_conda													## use conda environment in jupyter notebook
+conda remove --name py2 --all                   ## remove conda env
+conda install nb_conda                          ## use conda environment in jupyter notebook
+conda install --file requirements.txt           ## same as pip install -r requirements.txt
 
 ## tensorboard COMMAND
 tensorboard --logdir .
